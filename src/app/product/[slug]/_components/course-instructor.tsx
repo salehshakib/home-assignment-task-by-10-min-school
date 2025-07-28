@@ -1,9 +1,10 @@
-import { Section } from "@/types/product.types";
+import { ProductData } from '@/types/product.types';
 
-interface CourseInstructorProps {
-  section: Section;
-}
+export default function CourseInstructor({ productData }: { productData: ProductData }) {
+  const instructorData = productData.sections.find((section) => section.type === 'instructors');
 
-export default function CourseInstructor({ section }: CourseInstructorProps) {
-  return <div>Enter</div>;
+  return (
+    //
+    <></>
+  );
 }
