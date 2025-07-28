@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 
+import { Suspense } from 'react';
+
 import Footer from '@/components/common/footer';
 import Header from '@/components/common/header';
 
@@ -30,10 +32,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        {/* container mx-auto px-4 md:px-6  */}
-        <div className="min-h-screen">{children}</div>
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Header />
+          {/* container mx-auto px-4 md:px-6  */}
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );
