@@ -5,15 +5,16 @@ import { fetchProductData } from '@/app/services/product-service';
 import { LangType } from '@/types/product.types';
 
 interface ProductPageProps {
-  params: { slug: string };
-  searchParams: { lang?: LangType };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: LangType }>;
 }
 
-export default async function ProductPage({ params: { slug }, searchParams }: ProductPageProps) {
-  const lang = searchParams.lang || 'en';
+export default async function ProductPage({ params, searchParams }: ProductPageProps) {
+  const { slug } = await params;
+  const { lang = 'en' } = await searchParams;
+
   const { data } = await fetchProductData(lang, slug);
 
-  console.log({ data });
   return (
     <div
       style={{
@@ -24,7 +25,6 @@ export default async function ProductPage({ params: { slug }, searchParams }: Pr
       <div className="container mx-auto grid w-full max-w-7xl grid-cols-9 gap-8 py-16">
         <div className="col-span-6 min-h-screen">
           <CourseBanner productData={data} />
-          {/* <CourseInstructor /> */}
         </div>
 
         <div className="col-span-3">
