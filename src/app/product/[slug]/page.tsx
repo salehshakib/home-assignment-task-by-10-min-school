@@ -11,7 +11,7 @@ interface ProductPageProps {
 
 export default async function ProductPage({ params: { slug }, searchParams }: ProductPageProps) {
   const lang = searchParams.lang || 'en';
-  const { data } = await fetchProductData(slug, lang);
+  const { data } = await fetchProductData(lang, slug);
 
   console.log({ data });
   return (
