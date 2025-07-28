@@ -1,10 +1,10 @@
+import { productApi } from "@/app/api/endpoints/produt.api";
+import { LangType } from "@/types/product.types";
 import axios from "axios";
 
-const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-export const fetchProductData = async (lang: "en" | "bn" = "en") => {
+export const fetchProductData = async (lang: LangType = "en") => {
   try {
-    const { data } = await axios.get(`${apiUrl}/products/ielts-course`, {
+    const { data } = await axios.get(productApi.GET_PRODUCT_DETAILS, {
       headers: {
         "X-TENMS-SOURCE-PLATFORM": "web",
         Accept: "application/json",

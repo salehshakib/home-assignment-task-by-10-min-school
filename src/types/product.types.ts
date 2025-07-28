@@ -1,6 +1,6 @@
 // src/types/productTypes.ts
 
-interface OldInfo {
+export interface OldInfo {
   cat_id: number;
   course_id: number;
   platform: string;
@@ -8,14 +8,14 @@ interface OldInfo {
   slug: string;
 }
 
-interface Medium {
+export interface Medium {
   name: string;
   resource_type: string;
   resource_value: string;
   thumbnail_url: string;
 }
 
-interface Checklist {
+export interface Checklist {
   color: string;
   icon: string;
   id: string;
@@ -23,7 +23,7 @@ interface Checklist {
   text: string;
 }
 
-interface OfferValue {
+export interface OfferValue {
   background_color: string;
   background_img: string;
   checklist_text_color: string;
@@ -34,7 +34,7 @@ interface OfferValue {
   text: string;
 }
 
-interface InstructorValue {
+export interface InstructorValue {
   description: string;
   has_instructor_page: boolean;
   image: string;
@@ -43,14 +43,14 @@ interface InstructorValue {
   slug: string;
 }
 
-interface FeatureValue {
+export interface FeatureValue {
   icon: string;
   id: string;
   subtitle: string;
   title: string;
 }
 
-interface GroupJoinEngagementValue {
+export interface GroupJoinEngagementValue {
   background: {
     image: string;
     primary_color: string;
@@ -70,21 +70,21 @@ interface GroupJoinEngagementValue {
   top_left_icon_img: string;
 }
 
-interface PointerValue {
+export interface PointerValue {
   color: string;
   icon: string;
   id: string;
   text: string;
 }
 
-interface AboutValue {
+export interface AboutValue {
   description: string;
   icon: string;
   id: string;
   title: string;
 }
 
-interface FeatureExplanationValue {
+export interface FeatureExplanationValue {
   checklist: string[];
   file_type: string;
   file_url: string;
@@ -93,7 +93,7 @@ interface FeatureExplanationValue {
   video_thumbnail: string;
 }
 
-interface TestimonialValue {
+export interface TestimonialValue {
   description: string;
   id: string;
   name: string;
@@ -104,7 +104,7 @@ interface TestimonialValue {
   video_url: string;
 }
 
-interface FAQValue {
+export interface FAQValue {
   answer: string;
   id: string;
   question: string;
@@ -122,7 +122,7 @@ type SectionValue =
   | TestimonialValue
   | FAQValue;
 
-interface Section {
+export interface Section {
   type: string;
   name: string;
   description: string;
@@ -131,13 +131,13 @@ interface Section {
   values: SectionValue[];
 }
 
-interface CtaText {
+export interface CtaText {
   name: string;
   value: string;
 }
 
 // Define SEO interface based on typical SEO properties
-interface Seo {
+export interface Seo {
   title: string;
   description: string;
   keywords: string[];
@@ -168,3 +168,5 @@ export interface ProductData {
   secondary_cta_group: unknown[]; // Use unknown instead of any
   delivery_method: string;
 }
+
+export type LangType = "en" | "bn";
