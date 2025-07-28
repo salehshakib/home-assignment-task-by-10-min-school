@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { Languages } from 'lucide-react';
@@ -20,13 +21,15 @@ export function LanguageToggle() {
   };
 
   return (
-    <Button
-      variant="outline"
-      className="flex w-16 cursor-pointer items-center gap-1 border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50"
-      onClick={toggleLanguage}
-    >
-      <Languages className="h-4 w-4" />
-      <span>{currentLang.toUpperCase()}</span>
-    </Button>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Button
+        variant="outline"
+        className="flex w-16 cursor-pointer items-center gap-1 border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50"
+        onClick={toggleLanguage}
+      >
+        <Languages className="h-4 w-4" />
+        <span>{currentLang.toUpperCase()}</span>
+      </Button>
+    </Suspense>
   );
 }
